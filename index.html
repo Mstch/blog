@@ -90,7 +90,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="为什么go-java在写socket时要给fd加锁？"><a href="#为什么go-java在写socket时要给fd加锁？" class="headerlink" title="为什么go/java在写socket时要给fd加锁？"></a>为什么go/java在写socket时要给fd加锁？</h2><p>​    在今年夏天，就有过这样的疑惑，那时候作者在写一个go的rpc,bench结果显示竞争一个fd的lock占了阻塞时间的99.9%</p>
-<p><img src="/images/image-20201210174052784.png"></p>
+<p><img src="/imgs/image-20201210174052784.png"></p>
 <p>这时候作者就有疑问了,为什么要加这个锁呢？下面是作者解决这个问题的几个步骤:</p>
 <h4 id="1-检查write系统调用是否线程安全-有点南辕北辙了，应该先扒go的代码的"><a href="#1-检查write系统调用是否线程安全-有点南辕北辙了，应该先扒go的代码的" class="headerlink" title="1.检查write系统调用是否线程安全:(有点南辕北辙了，应该先扒go的代码的)"></a>1.检查write系统调用是否线程安全:(有点南辕北辙了，应该先扒go的代码的)</h4><p>​    这里作者写了个C的简单程序,比较短，很久之前写的没有留存，就不贴了。大概的内容就是开了四个写socket线程一个读socket线程。</p>
 <p>验证能否保证写的原子性。</p>
@@ -119,7 +119,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/10/%E4%B8%BA%E4%BB%80%E4%B9%88go-java%E5%9C%A8%E5%86%99socket%E6%97%B6%E8%A6%81%E7%BB%99fd%E5%8A%A0%E9%94%81/" data-id="ckiiufxeq0000fl2de69c38sj" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/12/10/%E4%B8%BA%E4%BB%80%E4%B9%88go-java%E5%9C%A8%E5%86%99socket%E6%97%B6%E8%A6%81%E7%BB%99fd%E5%8A%A0%E9%94%81/" data-id="ckiiuip8c0000kf2demwc3gst" class="article-share-link">Share</a>
       
       
     </footer>
