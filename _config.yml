@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://example.com
+url: https://blog.tiddar.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -109,3 +109,10 @@ deploy:
 - 
   type: 'git'
   repo: git@github.com:Mstch/blog.git
+- 
+  type: baidu_url_submitter
+baidu_url_submit:
+  count: 100                 # 提交最新的多少个链接
+  host: blog.tiddar.com       # 在百度站长平台中添加的域名
+  token: 7gTGCgCC8KlxYlL9                    # 秘钥
+  path: baidu_urls.txt
